@@ -147,7 +147,7 @@ public class GUIMain extends JFrame {
             if (((JMenuItem) e.getSource()).getName()
                     .equals("micliente")) {
                 System.out.println("Holas si llega");
-                /*jtpane.removeAll();
+                jtpane.removeAll();
 //MainCliente mc = new MainCliente();
 MainCliente mc = ctx.getBean(MainCliente.class);
 mc.setContexto(ctx);
@@ -160,7 +160,7 @@ JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 jtpane.add(scrollPane, "Cliente");
 contai.add(BorderLayout.CENTER, jtpane);
 contai.validate();
-contai.repaint();*/
+contai.repaint();
             }
             if (((JMenuItem) e.getSource()).getName().equals("miareaperiodo")) {
                 System.out.println("Si llega!");
