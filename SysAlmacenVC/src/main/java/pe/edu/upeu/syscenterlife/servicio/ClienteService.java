@@ -1,14 +1,20 @@
 package pe.edu.upeu.syscenterlife.servicio;
 
+import static java.lang.Math.log;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pe.com.syscenterlife.autocomp.ModeloDataAutocomplet;
 import pe.edu.upeu.syscenterlife.modelo.Cliente;
 import pe.edu.upeu.syscenterlife.repositorio.ClienteRepository;
+import pe.edu.upeu.syscenterlife.util.ErrorLogger;
 
 @Service
 
 public class ClienteService {
+    ErrorLogger log=new ErrorLogger("clienteservice.class");
 
     @Autowired
     ClienteRepository clienteRepository;
@@ -35,12 +41,31 @@ public class ClienteService {
         );
 
     }
+
     //buscar
-    public Cliente buscarCliente(String dniruc){
+    public Cliente buscarCliente(String dniruc) {
         return clienteRepository.findById(dniruc).get();
     }
+
     //buscar
-    public List<Cliente> buscarClienteNombre(String nombre){
-        return clienteRepository.findByNombre("%"+nombre+"%");
+    public List<Cliente> buscarClienteNombre(String nombre) {
+        return clienteRepository.findByNombre("%" + nombre + "%");
+    }
+
+    public List<ModeloDataAutocomplet> listAutoComplet(String dato) {
+        List<ModeloDataAutocomplet> listarclientes = new ArrayList<>();
+        try {
+            for (Cliente cliente : clienteRepository.listAutoCompletCliente(dato + "%")) {
+                ModeloDataAutocomplet data = new ModeloDataAutocomplet();
+                ModeloDataAutocomplet.TIPE_DISPLAY = "ID";
+                data.setIdx(cliente.getDniruc());
+                data.setNombreDysplay(cliente.getNombrers());
+                data.setOtherData(cliente.getDocumento());
+                listarclientes.add(data);
+            }
+        } catch (Exception e) {
+            log.log(Level.SEVERE, "create", e);
+        }
+        return listarclientes;
     }
 }
