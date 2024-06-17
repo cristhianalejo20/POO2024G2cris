@@ -8,40 +8,41 @@ import pe.edu.upeu.syscenterlife.repositorio.UsuarioRepository;
 
 @Service
 public class UsuarioService {
+
     @Autowired
     UsuarioRepository repository;
-    
+
     // Crear
-    public Usuario guardarEntidad(Usuario usuario){
+    public Usuario guardarEntidad(Usuario usuario) {
         return repository.save(usuario);
     }
-    
+
     // Leer todos los elementos
-    public List<Usuario> listarEntidad(){
+    public List<Usuario> listarEntidad() {
         return repository.findAll();
     }
-    
+
     // Actualizar
-    public Usuario actualizarEntidad(Usuario usuario){
+    public Usuario actualizarEntidad(Usuario usuario) {
         return repository.save(usuario);
     }
-    
+
     // Eliminar
-    public void eliminarEntidad(Long id){
+    public void eliminarEntidad(Long id) {
         repository.deleteById(id);
     }
-    
+
     // Buscar por ID
-    public Usuario buscarEntidad(Long id){
+    public Usuario buscarEntidad(Long id) {
         return repository.findById(id).orElse(null);
     }
-    public Usuario loginUsuario(String user, String clave ){
+
+    public Usuario loginUsuario(String user, String clave) {
         return repository.loginUsuario(user, clave);
-        
     }
-    public Usuario buscarUsuario(String user){
+
+    public Usuario buscarUsuario(String user) {
         return repository.buscarUsuario(user);
-        
     }
-    
+
 }

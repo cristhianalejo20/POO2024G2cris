@@ -1,5 +1,6 @@
 package pe.edu.upeu.syscenterlife.servicio;
 
+import jakarta.transaction.Transactional;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,4 +36,13 @@ public class VentCarritoService {
     public VentCarrito buscarEntidad(Long id){
         return repository.findById(id).orElse(null);
     }
+    
+    public List<VentCarrito> listaCarritoCliente(String dni){
+        return repository.listaCarritoCliente(dni);
+    }
+    @Transactional
+public void deleteCarAll(String dniruc){
+ this.repository.deleteByDniruc(dniruc);
+}
+
 }

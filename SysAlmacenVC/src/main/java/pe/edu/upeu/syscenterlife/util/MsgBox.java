@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package pe.edu.upeu.syscenterlife.util;
 
 import javax.swing.*;
@@ -41,6 +37,6 @@ public class MsgBox {
 
     public static void main(String[] args) {
         //MsgBox msgBox = new MsgBox("Mensaje", JOptionPane.ERROR_MESSAGE, "img/secrecy-icon.png");
-        MsgBox msgBox = new MsgBox("PROVANDO----------------", JOptionPane.CANCEL_OPTION, "");
+        MsgBox msgBox = new MsgBox("Probando.....", JOptionPane.CANCEL_OPTION, "");
     }
 }

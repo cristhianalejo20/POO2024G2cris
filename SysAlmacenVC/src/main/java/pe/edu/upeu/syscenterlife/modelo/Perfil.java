@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package pe.edu.upeu.syscenterlife.modelo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -19,23 +15,21 @@ import jakarta.validation.constraints.Size;
 import java.util.List;
 import lombok.Data;
 
- 
-@Data 
-@Entity 
-public class Perfil { 
-    @Id 
-    @GeneratedValue(strategy = GenerationType.IDENTITY) 
-    @Basic(optional = false) 
-    @Column(name = "id_perfil", nullable = false) 
-    private Long idPerfil; 
- 
-    @Size(max = 20) 
-    private String nombre; 
-    @Size(max = 6) 
-    private String codigo; 
- 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL) 
-    @JoinColumn(name = "id_perfil", referencedColumnName = "id_perfil") 
-    @JsonIgnoreProperties({"idPerfil"}) 
-    public List<Usuario> usuarios; 
-} 
+@Data
+@Entity
+public class Perfil {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id_perfil", nullable = false)
+    private Long idPerfil;
+    @Size(max = 20)
+    private String nombre;
+    @Size(max = 6)
+    private String codigo;
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_perfil", referencedColumnName = "id_perfil")
+    @JsonIgnoreProperties({"idPerfil"})
+    public List<Usuario> usuarios;
+}

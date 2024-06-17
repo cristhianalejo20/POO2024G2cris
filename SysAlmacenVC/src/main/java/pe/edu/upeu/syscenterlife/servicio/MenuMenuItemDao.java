@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package pe.edu.upeu.syscenterlife.servicio;
 
 import java.util.ArrayList;
@@ -10,10 +6,6 @@ import java.util.Properties;
 import org.springframework.stereotype.Service;
 import pe.edu.upeu.syscenterlife.modelo.MenuMenuItenTO;
 
-/**
- *
- * @author Datos
- */
 @Service
 public class MenuMenuItemDao implements MenuMenuItenDaoI {
 
@@ -24,11 +16,12 @@ public class MenuMenuItemDao implements MenuMenuItenDaoI {
         lista.add(new MenuMenuItenTO("Edit", "cut", "micut"));
         lista.add(new MenuMenuItenTO("Edit", "copy", "micopy"));
         lista.add(new MenuMenuItenTO("Edit", "paste", "mipaste"));
-        lista.add(new MenuMenuItenTO("Edit", idioma.getProperty("menuitem.nombre.postulante"), "miselectall"));
+        lista.add(new MenuMenuItenTO("Edit",
+                idioma.getProperty("menuitem.nombre.postulante"), "miselectall"));
         lista.add(new MenuMenuItenTO("Help", "Ver1", "miver1"));
         lista.add(new MenuMenuItenTO("Help", "Ver2", "miver2"));
         lista.add(new MenuMenuItenTO("Principal", "Cliente", "cliente"));
-        lista.add(new MenuMenuItenTO("Principal", "Area Periodo", "areaperiodo"));
+        lista.add(new MenuMenuItenTO("Principal", "R.Ventas", "areaperiodo"));
         List<MenuMenuItenTO> accesoReal = new ArrayList<>();
         switch (perfil) {
             case "Administrador":

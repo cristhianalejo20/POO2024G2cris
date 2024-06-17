@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package pe.edu.upeu.syscenterlife.modelo;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -60,19 +56,16 @@ public class Compra {
     @Column(name = "fecha_reg")
     @Temporal(TemporalType.DATE)
     private LocalDate fechaReg;
-
     @JoinColumn(name = "id_proveedor", referencedColumnName
             = "id_proveedor")
     @ManyToOne(optional = false)
     @JsonIgnoreProperties({"compras"})
     private Proveedor idProveedor;
-
     @JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario")
     @ManyToOne(optional = false)
     @JsonIgnoreProperties({"compras", "ventas", "compCarritos",
         "ventCarritos"})
     private Usuario idUsuario;
-
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "id_compra", referencedColumnName = "id_compra")
     @JsonIgnoreProperties({"idCompra"})

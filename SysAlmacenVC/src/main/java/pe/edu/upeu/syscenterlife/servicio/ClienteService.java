@@ -1,6 +1,5 @@
 package pe.edu.upeu.syscenterlife.servicio;
 
-import static java.lang.Math.log;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -12,42 +11,38 @@ import pe.edu.upeu.syscenterlife.repositorio.ClienteRepository;
 import pe.edu.upeu.syscenterlife.util.ErrorLogger;
 
 @Service
-
 public class ClienteService {
-    ErrorLogger log=new ErrorLogger("clienteservice.class");
-
+    ErrorLogger log=new ErrorLogger("ClienteService.class");
+    
     @Autowired
     ClienteRepository clienteRepository;
 
     //Create
     public Cliente guardarEntidad(Cliente cliente) {
         return clienteRepository.save(cliente);
-
     }
 
     //Report
     public List<Cliente> listarEntidad() {
         return clienteRepository.findAll();
     }
-    //Upsdate
 
+    //Update
     public Cliente actualizarEntidad(Cliente cliente) {
         return clienteRepository.save(cliente);
     }
+
     //Delete
-
     public void eliminarRegEntidad(String dniruc) {
-        clienteRepository.delete(clienteRepository.findById(dniruc).get()
-        );
-
+        clienteRepository.delete(clienteRepository.findById(dniruc).get());
     }
 
-    //buscar
+    //Buscar
     public Cliente buscarCliente(String dniruc) {
         return clienteRepository.findById(dniruc).get();
     }
 
-    //buscar
+    //Buscar
     public List<Cliente> buscarClienteNombre(String nombre) {
         return clienteRepository.findByNombre("%" + nombre + "%");
     }
@@ -68,4 +63,5 @@ public class ClienteService {
         }
         return listarclientes;
     }
+
 }

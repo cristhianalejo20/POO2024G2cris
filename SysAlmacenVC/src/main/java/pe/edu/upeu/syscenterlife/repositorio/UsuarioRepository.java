@@ -9,8 +9,7 @@ import pe.edu.upeu.syscenterlife.modelo.Usuario;
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
-    @Query(value = "SELECT u.* FROM Usuario u WHERE u.user=:userx ",
-             nativeQuery = true)
+    @Query(value = "SELECT u.* FROM Usuario u WHERE u.user=:userx ", nativeQuery = true)
     Usuario buscarUsuario(@Param("userx") String userx);
 
     @Query(value = "SELECT u.* FROM Usuario u WHERE u.user=:user and u.clave=:clave", nativeQuery = true)

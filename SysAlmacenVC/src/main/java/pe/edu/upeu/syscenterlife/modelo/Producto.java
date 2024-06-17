@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package pe.edu.upeu.syscenterlife.modelo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -22,7 +18,6 @@ import lombok.Data;
 @Data
 @Entity
 public class Producto {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
@@ -46,14 +41,17 @@ public class Producto {
     @Basic(optional = false)
     @Column(name = "stockold")
     private double stockold;
+    
     @JoinColumn(name = "id_categoria", referencedColumnName = "id_categoria")
     @ManyToOne(optional = false)
     @JsonIgnoreProperties({"productos"})
     private Categoria idCategoria;
+    
     @JoinColumn(name = "id_marca", referencedColumnName = "id_marca")
     @ManyToOne(optional = false)
     @JsonIgnoreProperties({"productos"})
     private Marca idMarca;
+    
     @JoinColumn(name = "id_unidad", referencedColumnName = "id_unidad")
     @ManyToOne(optional = false)
     @JsonIgnoreProperties({"productos"})
@@ -67,4 +65,5 @@ public class Producto {
     @JoinColumn(name = "id_producto", referencedColumnName = "id_producto")
     @JsonIgnoreProperties({"idProducto"})
     public List<VentaDetalle> ventaDetalles;
+    
 }
